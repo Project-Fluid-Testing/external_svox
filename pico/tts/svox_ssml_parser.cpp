@@ -57,7 +57,12 @@ SvoxSsmlParser::SvoxSsmlParser() : m_isInBreak(0), m_appendix(NULL), m_docLangua
         XML_SetUserData(mParser, (void*)this);
         m_datasize = 512;
         m_data = new char[m_datasize];
-        m_data[0] = '\0';
+        if (!m_data)
+        {
+            ALOGE("Error: failed to allocate memory for string!\n");
+        } else {
+            memset(m_data, 0, m_datasize);
+        }
     }
 }
 
@@ -120,6 +125,8 @@ void SvoxSsmlParser::startElement(const XML_Char* element, const XML_Char** attr
             {
                 ALOGE("Error: failed to allocate memory for string!\n");
                 return;
+            } else {
+                memset(m_data, 0, m_datasize);
             }
         }
 
