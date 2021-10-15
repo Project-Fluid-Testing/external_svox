@@ -1,0 +1,36 @@
+cc_defaults {
+    name: "libttspico_defaults",
+    cppflags: [
+        "-Wall",
+        "-Werror",
+        "-Wno-sign-compare",
+        "-Wno-unused-const-variable",
+        "-Wno-unused-parameter",
+    ],
+    srcs: [
+        "com_svox_picottsengine.cpp",
+        "svox_ssml_parser.cpp",
+    ],
+    shared_libs: [
+        "libcutils",
+        "libexpat",
+        "libutils",
+        "liblog",
+    ],
+    static_libs: ["libsvoxpico"],
+    include_dirs: [
+        "external/svox/pico/lib",
+        "external/svox/pico/compat/include",
+    ],
+    compile_multilib: "32",
+}
+
+cc_library_static {
+    name: "libttspico_engine",
+    defaults: ["libttspico_defaults"],
+}
+
+cc_library_shared {
+    name: "libttspico",
+    defaults: ["libttspico_defaults"],
+}

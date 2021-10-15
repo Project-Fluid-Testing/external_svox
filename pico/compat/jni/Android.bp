@@ -1,0 +1,24 @@
+cc_library_shared {
+    name: "libttscompat",
+    srcs: [
+        "com_android_tts_compat_SynthProxy.cpp"
+    ],
+    shared_libs: [
+        "libandroid_runtime",
+        "libnativehelper",
+        "libmedia",
+        "libutils",
+        "libcutils",
+        "liblog",
+        "libdl",
+    ],
+    header_libs: [
+        "libnativehelper_header_only",
+    ],
+    cppflags: [
+        "-Wall",
+        "-Werror",
+        "-Wno-unused-parameter",
+    ],
+    compile_multilib: "32",
+}

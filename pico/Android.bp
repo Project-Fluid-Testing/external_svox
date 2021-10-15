@@ -1,0 +1,32 @@
+subdirs = [
+    "compat/jni",
+    "lib",
+    "tts",
+]
+
+android_app {
+    name: "PicoTts",
+
+    srcs: [
+        "src/**/*.java",
+        "compat/**/*.java",
+    ],
+    jni_libs: [
+        "libttscompat",
+        "libttspico",
+    ],
+
+    optimize: {
+        proguard_flags_files: ["proguard.flags"],
+    },
+    product_variables: {
+        pdk: {
+            enabled: false,
+        },
+    },
+
+    platform_apis: true,
+    min_sdk_version: "26",
+
+    compile_multilib: "32",
+}
