@@ -17,7 +17,7 @@
 
 #include "svox_ssml_parser.h"
 #include <utils/Log.h>
-#include <cutils/jstring.h>
+#include "jstring.h"
 #include <string.h>
 #include <utils/String16.h>
 

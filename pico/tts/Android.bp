@@ -9,6 +9,8 @@ cc_defaults {
     ],
     srcs: [
         "com_svox_picottsengine.cpp",
+        "strdup16to8.cpp",
+        "strdup8to16.cpp",
         "svox_ssml_parser.cpp",
     ],
     shared_libs: [
